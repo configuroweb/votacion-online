@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Votación</h1>
+        
+        <section id="input-section">
+            <h2>Agregar Participantes</h2>
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    id="participant-name" 
+                    placeholder="Nombre del participante"
+                    autocomplete="off">
+            </div>
+            <div class="button-group">
+                <button class="btn" onclick="addParticipant()">
+                    Agregar Participante
+                </button>
+                <button class="btn warning" onclick="resetVotes()">
+                    Reiniciar Votación
+                </button>
+            </div>
+        </section>
+
+        <section id="voting-section" style="display:none">
+            <div class="section-header">
+                <h2>Resultados de la Votación</h2>
+                <div class="export-buttons">
+                    <button class="btn secondary" onclick="exportToCSV()">
+                        Exportar CSV
+                    </button>
+                </div>
+            </div>
+            
+            <div class="vote-section" id="vote-section"></div>
+            
+            <div id="chart-container">
+                <canvas id="vote-chart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <div id="notification-container"></div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <svg class="theme-toggle-icon" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"/>
+        </svg>
+    </button>
+
+    <!-- Agregar antes del cierre del body -->
+<footer id="app-footer" class="app-footer">
+    <p>Para más desarrollos <a href="https://configuroweb.com" target="_blank">ConfiguroWeb</a></p>
+</footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
